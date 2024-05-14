@@ -2,5 +2,5 @@ from django.shortcuts import render
 
 # Create your views here.
 
-def review():
-  e
+def review(request):
+  return render(request, 'reviews/review.html')
