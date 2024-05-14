@@ -2,7 +2,7 @@
 
 {% block title %}All Reviews{% endblock %}
 
-{% block content%}
+{% block content %}
   <ul>
     {% for review in reviews %}
       <li>{{ review.user_name }} (Rating: {{ review.rating }})</li>
