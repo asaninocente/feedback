@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.views import View
 from django.http import HttpResponseRedirect
+from django.views.generic.edit import CreateView
 
-from .forms import ProfileForm
+# from .forms import ProfileForm
 from .models import UserProfile
 
 # Create your views here.
@@ -14,6 +15,7 @@ def store_file(file):
       dest.write(chunk)
 """
 
+"""
 class CreateProfileView(View):
   def get(self, request):
     form = ProfileForm()
@@ -33,3 +35,10 @@ class CreateProfileView(View):
     return render(request, 'profiles/create_profile.html', {
       'form': submitted_form
     })
+"""
+
+class CreateProfileView(CreateView):
+  template_name = 'profiles/create_profile.html'
+  model = UserProfile
+  fields = '__all__'
+  success_url = '/profiles'
